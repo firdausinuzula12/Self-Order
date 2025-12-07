@@ -1,9 +1,7 @@
 <?php
 include 'koneksi.php';
+include 'navmenu.php';
 
-// ======================
-// Ambil Data Produk
-// ======================
 if (isset($_GET['id'])) {
     $id_produk = $_GET['id'];
     $query = "SELECT * FROM tb_produk WHERE id = '$id_produk'";
@@ -20,9 +18,6 @@ if (isset($_GET['id'])) {
     exit();
 }
 
-// ======================
-// Tambah Stok Produk
-// ======================
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['jumlah_restok'])) {
     $jumlah_restok = (int)$_POST['jumlah_restok'];
 
@@ -40,9 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['jumlah_restok'])) {
     }
 }
 
-// ======================
-// Hapus Produk
-// ======================
+
 if (isset($_POST['hapus_produk'])) {
     $delete = "DELETE FROM tb_produk WHERE id = '$id_produk'";
     if (mysqli_query($koneksi, $delete)) {
@@ -64,7 +57,7 @@ if (isset($_POST['hapus_produk'])) {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
@@ -77,7 +70,7 @@ if (isset($_POST['hapus_produk'])) {
             max-width: 600px;
             margin: 40px auto;
             padding: 30px;
-            border-radius: 12px;
+            border-radius: 3px;
             box-shadow: 0 4px 15px rgba(172, 23, 84, 0.15);
         }
 
@@ -98,7 +91,7 @@ if (isset($_POST['hapus_produk'])) {
             display: block;
             margin: 15px auto;
             max-width: 60%;
-            border-radius: 8px;
+            border-radius: 3px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
@@ -114,7 +107,7 @@ if (isset($_POST['hapus_produk'])) {
             padding: 10px;
             margin-top: 8px;
             border: 1px solid #ccc;
-            border-radius: 6px;
+            border-radius: 3px;
             font-size: 1rem;
         }
 
@@ -130,7 +123,7 @@ if (isset($_POST['hapus_produk'])) {
             text-align: center;
             padding: 10px;
             border: none;
-            border-radius: 6px;
+            border-radius: 3px;
             color: white;
             font-weight: 600;
             cursor: pointer;
@@ -156,10 +149,8 @@ if (isset($_POST['hapus_produk'])) {
         }
     </style>
 </head>
-
 <body>
 
-<?php include 'navmenu.php'; ?>
 
 <div class="container">
     <h1>Kelola Produk</h1>
@@ -185,6 +176,5 @@ if (isset($_POST['hapus_produk'])) {
         </div>
     </form>
 </div>
-
 </body>
 </html>

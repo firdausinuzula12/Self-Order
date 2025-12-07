@@ -11,7 +11,6 @@ include 'navbar.php';
   <title>The Cakery</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -19,14 +18,13 @@ include 'navbar.php';
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: #FFEDFA;
       color: #333;
       padding-top: 27px;
       overflow-x: hidden;
     }
 
-    /* ====== Kategori Section ====== */
     .quick-categories {
       margin-top:80px;
       padding: 60px 20px;
@@ -46,7 +44,6 @@ include 'navbar.php';
       margin-top: 60px;
     }
 
-    /* ====== Kartu Kategori ====== */
     .category-item {
       background: #fff;
       border-radius: 16px;
@@ -63,7 +60,6 @@ include 'navbar.php';
       box-shadow: 0 8px 20px rgba(172, 23, 84, 0.2);
     }
 
-    /* Aksen lingkaran di belakang gambar */
     .category-item::before {
       content: "";
       position: absolute;
@@ -113,7 +109,6 @@ include 'navbar.php';
       color: #AC1754;
     }
 
-    /* Responsif */
     @media (max-width: 768px) {
       .categories-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -136,12 +131,9 @@ include 'navbar.php';
 </head>
 
 <body>
-  <?php include 'navbar.php'; ?>
-
   <section class="quick-categories">
     <div class="categories-container">
       <div class="categories-grid">
-        
         <div class="category-item">
           <a href="kategori_produk.php?kategori=cake">
             <div class="category-image">
@@ -186,7 +178,6 @@ include 'navbar.php';
             <h3>Roti</h3>
           </a>
         </div>
-
       </div>
     </div>
   </section>

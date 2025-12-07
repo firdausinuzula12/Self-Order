@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('koneksi.php'); // koneksi ke database
+include('koneksi.php');
 
 if (isset($_POST['login'])) {
     $username = mysqli_real_escape_string($koneksi, $_POST['username']);
@@ -17,6 +17,8 @@ if (isset($_POST['login'])) {
         if ($password === $row['password']) {
             $_SESSION['username'] = $row['username'];
             $_SESSION['role'] = $row['role'];
+            $_SESSION['id'] = $row['id'];
+
 
             // Redirect sesuai role
             if ($row['role'] === 'admin') {
@@ -36,13 +38,6 @@ if (isset($_POST['login'])) {
         exit();
     }
 }
-
-// Logout jika ada
-if (isset($_GET['logout'])) {
-    session_destroy();
-    header('Location: index.php');
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +47,7 @@ if (isset($_GET['logout'])) {
     <title>Login - The Cakery</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', sans-serif;
             background: #FFEDFA;
             margin: 0;
             padding: 0;
@@ -64,7 +59,7 @@ if (isset($_GET['logout'])) {
         .container {
             background: #fff;
             padding: 40px 30px;
-            border-radius: 15px;
+            border-radius: 3px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             width: 100%;
             max-width: 400px;
@@ -78,6 +73,7 @@ if (isset($_GET['logout'])) {
         h2 {
             color: #AC1754;
             margin-bottom: 30px;
+            font-size: 35px;
         }
         label {
             font-size: 14px;
@@ -91,7 +87,7 @@ if (isset($_GET['logout'])) {
             padding: 12px 15px;
             margin-top: 5px;
             border: 1px solid #ccc;
-            border-radius: 8px;
+            border-radius: 3px;
             background: #fafafa;
             font-size: 16px;
             box-sizing: border-box;
@@ -106,7 +102,7 @@ if (isset($_GET['logout'])) {
             padding: 12px;
             background-color: #AC1754;
             border: none;
-            border-radius: 8px;
+            border-radius: 3px;
             font-size: 16px;
             color: white;
             cursor: pointer;
@@ -131,7 +127,6 @@ if (isset($_GET['logout'])) {
         <button type="submit" name="login">Login</button>
     </form>
 </div>
-
 </body>
 </html>
 

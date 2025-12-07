@@ -17,7 +17,7 @@ $jumlah_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as tot
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         body { 
-            font-family: 'Inter', Arial, sans-serif; 
+            font-family: 'Inter',sans-serif; 
             margin: 0; 
             background-color: #FFEDFA; 
         }

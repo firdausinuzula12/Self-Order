@@ -1,13 +1,12 @@
 <?php
 session_start();
+include 'koneksi.php';
 
-// Pastikan data sesi lengkap
 if (!isset($_SESSION['keranjang'], $_SESSION['no_antrian'], $_SESSION['id_pesanan'], $_SESSION['nama_pelanggan'])) {
     echo "Data pesanan tidak lengkap. Silakan coba lagi.";
     exit();
 }
 
-include 'koneksi.php';
 if ($koneksi->connect_error) {
     die("Koneksi gagal: " . $koneksi->connect_error);
 }
@@ -121,7 +120,7 @@ $koneksi->close();
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f8f8; /* Warna latar belakang baru */
+            background-color: #f8f8f8; 
             margin: 0;
             display: flex;
             justify-content: center;
@@ -161,9 +160,15 @@ $koneksi->close();
             color: white;
         }
 
-        .icon.success { background: #28a745; }
-        .icon.error { background: #dc3545; }
-        .icon.process { background: #6c757d; }
+        .icon.success { 
+            background: #28a745; 
+        }
+        .icon.error { 
+            background: #dc3545; 
+        }
+        .icon.process { 
+            background: #6c757d; 
+        }
 
         h1 {
             font-size: 1.5rem;
@@ -291,6 +296,5 @@ function redirectNow() { window.location.href = 'index.php'; }
 function goBack() { window.history.back(); }
 setInterval(updateCountdown, 1000);
 </script>
-
 </body>
 </html>

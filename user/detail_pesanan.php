@@ -38,7 +38,7 @@ foreach ($keranjang as $item) {
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #f8f8f8;
             min-height: 100vh;
             color: #333;
@@ -55,7 +55,7 @@ foreach ($keranjang as $item) {
             max-width: 600px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
+            border-radius: 3px;
             box-shadow: 0 2px 10px rgba(172, 23, 84, 0.1);
             overflow: hidden;
             animation: slideUp 0.6s ease-out;
@@ -97,7 +97,7 @@ foreach ($keranjang as $item) {
         .customer-info {
             background: #f8f8f8;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 3px;
             margin-bottom: 15px;
             border: 1px solid rgba(172, 23, 84, 0.1);
         }
@@ -171,7 +171,7 @@ foreach ($keranjang as $item) {
         .item-quantity {
             color: #AC1754;
             padding: 2px 6px;
-            border-radius: 10px;
+            border-radius: 3px;
             font-size: 0.8rem;
             font-weight:600;
         }
@@ -187,7 +187,7 @@ foreach ($keranjang as $item) {
         .total-section {
             background: #f8f8f8;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 3px;
             margin-bottom: 15px;
             border: 1px solid rgba(172, 23, 84, 0.1);
         }
@@ -207,7 +207,7 @@ foreach ($keranjang as $item) {
             background: #AC1754;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 3px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
@@ -233,7 +233,7 @@ foreach ($keranjang as $item) {
             background: linear-gradient(135deg, #AC1754, #9c1248);
             color: white;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 3px;
             margin-bottom: 15px;
             text-align: center;
         }
@@ -308,7 +308,7 @@ foreach ($keranjang as $item) {
             width: 16px;
             height: 16px;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
+            border-radius: 3;
             border-top-color: white;
             animation: spin 1s ease-in-out infinite;
             margin-left: 8px;

@@ -1,7 +1,6 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
     session_start();
-}
+
 ?>
 
 <!-- Font Awesome -->
@@ -42,120 +41,120 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <style>
 /* --- Gaya Header --- */
-header {
-    background-color: #AC1754;
-    display: flex;
-    align-items: center;
-    padding: 8px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
+  header {
+      background-color: #AC1754;
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
 
 /* Wrapper */
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 95%;
-    margin: 0 auto;
-}
+  .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 95%;
+      margin: 0 auto;
+  }
 
 /* Logo */
-.logo {
-    display: flex;
-    align-items: center;
-}
-.logo img {
-    width: 70px;
-    margin-right: 12px;
-}
-.logo span {
-    font-family: 'Verdana', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
-}
+  .logo {
+      display: flex;
+      align-items: ce nter;
+  }
+  .logo img {
+      width: 70px;
+        margin-right: 12px;
+  }
+  .logo span {
+      font-family: 'Poppins Semibold';
+      font-size: 33px;
+      font-weight: bold;
+      color: white;
+  }
 
-/* Menu kanan */
-.menu-kanan {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
+  .menu-kanan {
+      font-family: 'Poppins Semibold';
+      display: flex;
+      align-items: center;
+      gap: 25px;
+  }
 
-.menu-kanan .nav-link {
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 16px;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
+  .menu-kanan .nav-link {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+  }
 
-.menu-kanan .nav-link:hover {
-    color: #fbd5e5;
-}
+  .menu-kanan .nav-link:hover {
+      color: #fbd5e5;
+  }
 
 /* --- Dropdown Profil --- */
-.profile-menu {
-    position: relative;
-    cursor: pointer;
-}
+  .profile-menu {
+      position: relative;
+      cursor: pointer;
+  }
 
-.profile-icon {
-    font-size: 22px;
-    color: white;
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
+  .profile-icon {
+      font-size: 22px;
+      color: white;
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+  }
 
-.dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 40px;
-    background: white;
-    color: #333;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    min-width: 150px;
-    animation: fadeIn 0.2s ease;
-}
+  .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 40px;
+      background: white;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      min-width: 150px;
+      animation: fadeIn 0.2s ease;
+  }
 
-.dropdown a {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 14px;
-    transition: 0.3s;
-}
+  .dropdown a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 14px;
+      transition: 0.3s;
+  }
 
-.dropdown a:hover {
-    background: #fbd5e5;
-    color: #ac1754;
-}
+  .dropdown a:hover {
+      background: #fbd5e5;
+      color: #ac1754;
+  }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+          transform: translateY(-5px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
 </style>
 
 <script>

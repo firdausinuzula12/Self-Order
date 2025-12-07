@@ -2,8 +2,6 @@
 include 'koneksi.php';
 include 'navmenu.php';
 
-
-// --- Query Statistik ---
 $qProduk = mysqli_query($koneksi, "SELECT COUNT(*) AS total_produk FROM tb_produk");
 $dataProduk = mysqli_fetch_assoc($qProduk)['total_produk'] ?? 0;
 
@@ -37,18 +35,19 @@ $jamSibuk = isset($dataJam['jam']) ? sprintf('%02d:00', $dataJam['jam']) : '-';
     <style>
         * {
             margin: 0; padding: 0; box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
         body {
             background: #f9f4ef;
             padding-top: 80px;
+            font-family: 'Inter', sans-serif;
         }
         .container {
             max-width: 1200px;
             margin: 40px auto;
             padding: 30px;
             background: #fffafc;
-            border-radius: 16px;
+            border-radius: 3px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
         h1 {
@@ -67,7 +66,7 @@ $jamSibuk = isset($dataJam['jam']) ? sprintf('%02d:00', $dataJam['jam']) : '-';
 
         .card {
             background: linear-gradient(135deg, #fff5f8, #ffeef2);
-            border-radius: 14px;
+            border-radius: 3px;
             padding: 25px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             text-align: center;
@@ -110,11 +109,8 @@ $jamSibuk = isset($dataJam['jam']) ? sprintf('%02d:00', $dataJam['jam']) : '-';
     </style>
 </head>
 <body>
-
 <div class="container">
-    <h1> Dashboard Admin</h1>
-    
-
+    <h1>Dashboard Admin</h1>
     <div class="cards">
         <div class="card">
             <div class="icon"></div>
@@ -124,29 +120,32 @@ $jamSibuk = isset($dataJam['jam']) ? sprintf('%02d:00', $dataJam['jam']) : '-';
 
         <div class="card">
             <div class="icon"></div>
+             <a href="users_admin.php" style="text-decoration: none; color: inherit;">
             <h3>Total User</h3>
             <p><?= $dataUser; ?></p>
         </div>
-
+        
         <div class="card">
             <div class="icon"></div>
             <h3>Jumlah Transaksi</h3>
             <p><?= $dataTrans; ?></p>
         </div>
-
+      
         <div class="card">
             <div class="icon"></div>
+            <a href="jam_sibuk.php" style="text-decoration: none; color: inherit;">
             <h3>Jam Sibuk</h3>
-            <p><?= $jamSibuk; ?></p>
+            <p><?= $jamSibuk; ?></p></a>
         </div>
-
+      
         <div class="card pemasukan">
             <div class="icon"></div>
+            <a href="pemasukan_hari.php" style="text-decoration: none; color: inherit;">
             <h3>Total Pemasukan</h3>
-            <p>Rp<?= number_format($dataPemasukan, 0, ',', '.'); ?></p>
+            <p>Rp<?= number_format($dataPemasukan, 0, ',', '.'); ?></p></a>
         </div>
+      
     </div>
 </div>
-
 </body>
 </html>

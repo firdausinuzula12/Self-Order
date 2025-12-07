@@ -3,7 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Hitung jumlah produk di keranjang
+
 $jumlah_keranjang = 0;
 if (isset($_SESSION['keranjang']) && is_array($_SESSION['keranjang'])) {
     foreach ($_SESSION['keranjang'] as $item) {
@@ -38,7 +38,6 @@ header {
     background-color: #AC1754; /**warna back */
     display: flex; /**mengatur bagian element yang ditampilkan */
     align-items: center;
-    padding-top: 0px;/**mengatur ruang di dalam element */
     position: fixed; /**mengatur posisi element */
     top: 0; /**menentukan jarak element dari atas */
     left: 0; /**menentukan jarak element dari kiri */
@@ -53,16 +52,16 @@ header .logo {
 }
 
 .logo span {
-    font-size: 30px;
+    font-size: 33px;
     font-weight: bold;
     color: white;
-    font-family: 'Verdana', sans-serif;
+    font-family: 'Poppins Semibold';
 }
 
 header .logo img {
     margin-right: 25px;
     height: auto;
-    width: 80px;
+    width: 95px;
 }
 
 /* Header wrapper */
@@ -71,7 +70,7 @@ header .logo img {
     justify-content: space-between;
     align-items: center;
     width: 95%;
-    padding: 0.5px 35px;
+    padding:0 40px;
 }
 
 /* Logo */
@@ -80,16 +79,9 @@ header .logo img {
     align-items: center;
 }
 .logo img {
-    width: 80px;
-    margin-right: 10px;
+    width: 70px;
+    margin-right: 12px;
 }
-.logo span {
-    font-family: 'Pacifico', 'cursive';
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-}
-
 
 /* Cart */
 #cart {
@@ -101,7 +93,7 @@ header .logo img {
     color: white;
 }
 #cart span {
-    background-color: red;
+    background-color: orange;
     color: white;
     border-radius: 50%;
     padding: 1px 5px;

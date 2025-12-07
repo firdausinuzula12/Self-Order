@@ -1,6 +1,6 @@
 <?php
 include "../koneksi.php";
-require_once '../phpqrcode/qrlib.php'; // pastikan file ini ada!
+require_once '../phpqrcode/qrlib.php'; 
 
 $id_pesanan = $_GET['id'];
 
@@ -61,14 +61,33 @@ $koneksi->query("UPDATE tb_pesanan SET qr_path='$qrPathDB', status_pesanan='Luna
             padding: 5px;
             border: 1px dashed #000;
         }
-        h2, h4, p {
+        h2, h4 {
             text-align: center;
             margin: 3px 0;
+        }
+        .center-text {
+            text-align: center;
+            margin: 3px 0;
+        }
+        .info-table {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .info-table td {
+            padding: 2px 0;
+            vertical-align: top;
+        }
+        .info-table td:first-child {
+            width: 80px;
+        }
+        .info-table td:nth-child(2) {
+            width: 10px;
+            text-align: center;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 8px;
+            margin-top: 20px;
         }
         th, td {
             text-align: left;
@@ -96,16 +115,36 @@ $koneksi->query("UPDATE tb_pesanan SET qr_path='$qrPathDB', status_pesanan='Luna
 <body>
 <div class="nota">
     <h2>The Cakery</h2>
-    <p>Jl. Mawar No. 45, Surabaya</p>
+    <p class="center-text">Jl. Mawar No. 45, Surabaya</p>
     <hr>
 
-    <p>
-        <strong>ID Pesanan:</strong> <?= htmlspecialchars($data_pesanan['id_pesanan']); ?><br>
-        <strong>Nama:</strong> <?= htmlspecialchars($data_pesanan['nama_pelanggan']); ?><br>
-        <strong>Tanggal:</strong> <?= date('d/m/Y H:i', strtotime($data_pesanan['tanggal_pemesanan'])); ?><br>
-        <strong>Status:</strong> <?= htmlspecialchars($data_pesanan['status_pesanan']); ?><br>
-        <strong>Metode:</strong> <?= htmlspecialchars($data_pesanan['metode_pembayaran']); ?>
-    </p>
+    <table class="info-table">
+        <tr>
+            <td>ID Pesanan</td>
+            <td>:</td>
+            <td><?= htmlspecialchars($data_pesanan['id_pesanan']); ?></td>
+        </tr>
+        <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td><?= htmlspecialchars($data_pesanan['nama_pelanggan']); ?></td>
+        </tr>
+        <tr>
+            <td>Tanggal</td>
+            <td>:</td>
+            <td><?= date('d/m/Y H:i', strtotime($data_pesanan['tanggal_pemesanan'])); ?></td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>:</td>
+            <td><?= htmlspecialchars($data_pesanan['status_pesanan']); ?></td>
+        </tr>
+        <tr>
+            <td>Metode</td>
+            <td>:</td>
+            <td><?= htmlspecialchars($data_pesanan['metode_pembayaran']); ?></td>
+        </tr>
+    </table>
 
     <table>
         <thead>
@@ -155,7 +194,7 @@ $koneksi->query("UPDATE tb_pesanan SET qr_path='$qrPathDB', status_pesanan='Luna
     window.onafterprint = function() {
         setTimeout(function() {
             window.location.href = "index.php";
-        }, 5000);
+        }, 2000);
     };
 </script>
 </body>

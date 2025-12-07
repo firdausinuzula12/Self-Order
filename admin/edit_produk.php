@@ -63,8 +63,8 @@ if (isset($_POST['update'])) {
 <title>Edit Produk - The Cakery</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-body {
-    font-family: 'Poppins', sans-serif;
+    body {  
+    font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #FFEDFA 0%, #F8E8FF 100%);
     margin: 0;
     padding: 100px 20px 50px;
@@ -72,9 +72,9 @@ body {
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-}
+    }
 
-.form-wrapper {
+    .form-wrapper { 
     display: flex;
     gap: 40px;
     background: #fff;
@@ -84,33 +84,33 @@ body {
     width: 100%;
     max-width: 900px;
     align-items: flex-start;
-}
+    }
 
 /* === FORM SECTION === */
-.form-container {
+    .form-container {   
     flex: 1;
-}
+    }
 
-h2 {
+    h2 {    
     text-align: center;
     color: #AC1754;
     margin-bottom: 25px;
     font-weight: 600;
-}
+    }
 
-label {
+    label { 
     display: block;
     margin-top: 14px;
     font-weight: 500;
     color: #AC1754;
     font-size: 14px;
-}
+    }
 
-input[type="text"],
-input[type="number"],
-textarea,
-input[type="file"],
-select {
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    input[type="file"],
+    select {    
     width: 100%;
     padding: 10px 12px;
     margin-top: 4px;
@@ -119,73 +119,73 @@ select {
     font-size: 14px;
     background-color: #fafafa;
     transition: 0.3s ease;
-}
+    }
 
-input:focus,
-textarea:focus,
-select:focus {
+    input:focus,
+    textarea:focus,
+    select:focus {  
     outline: none;
     border-color: #AC1754;
     background-color: #fff;
     box-shadow: 0 0 4px rgba(172, 23, 84, 0.3);
-}
+    }
 
-textarea {
-    resize: vertical;
-}
+    textarea {
+        resize: vertical;
+    }
 
-button {
-    margin-top: 25px;
-    padding: 12px;
-    background: linear-gradient(135deg, #AC1754, #D63384);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    font-weight: 500;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
+    button {
+        margin-top: 25px;
+        padding: 12px;
+        background: linear-gradient(135deg, #AC1754, #D63384);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
 
-button:hover {
-    background: linear-gradient(135deg, #8d0f45, #b91c6a);
-    transform: translateY(-2px);
-}
+    button:hover {
+        background: linear-gradient(135deg, #8d0f45, #b91c6a);
+        transform: translateY(-2px);
+    }
 
 /* === GAMBAR PREVIEW === */
-.image-container {
-    flex: 0.8;
-    text-align: center;
-}
+    .image-container {
+        flex: 0.8;
+        text-align: center;
+    }
 
-.image-container img {
-    margin-top: 100px;
-    width: 100%;
-    max-width: 300px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
+    .image-container img {
+        margin-top: 100px;
+        width: 100%;
+        max-width: 300px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
 
-.image-container small {
-    display: block;
-    margin-top: 10px;
-    color: #777;
-    font-size: 13px;
-}
+    .image-container small {
+        display: block;
+        margin-top: 10px;
+        color: #777;
+        font-size: 13px;
+    }
 
 /* === RESPONSIF === */
-@media (max-width: 768px) {
-    .form-wrapper {
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        padding: 25px 20px;
+    @media (max-width: 768px) {
+        .form-wrapper {
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding: 25px 20px;
+        }
+        .image-container img {
+            max-width: 220px;
+        }
     }
-    .image-container img {
-        max-width: 220px;
-    }
-}
 </style>
 </head>
 <body>

@@ -2,15 +2,13 @@
 session_start();
 include "../koneksi.php";
 
-// Contoh (hapus ini kalau login sudah otomatis)
-$_SESSION['role'] = 'admin'; // ubah ke 'kasir' untuk testing
+$_SESSION['role'] = 'admin'; 
 
 $role = $_SESSION['role'] ?? '';
 
 $cari = isset($_GET['cari']) ? $_GET['cari'] : '';
-$filter = isset($_GET['filter']) ? $_GET['filter'] : ''; // tombol filter
+$filter = isset($_GET['filter']) ? $_GET['filter'] : ''; 
 
-// ====== QUERY DASAR ======
 $query = "
     SELECT 
         p.id,
@@ -24,14 +22,12 @@ $query = "
     WHERE 1
 ";
 
-// ====== FILTER PENCARIAN ======
 if (!empty($cari)) {
     $query .= " AND p.nama_produk LIKE '%$cari%'";
 }
 
 $query .= " GROUP BY p.id ";
 
-// ====== FILTER TAMBAHAN DARI BUTTON ======
 switch ($filter) {
     case 'stok_terbanyak':
         $query .= " ORDER BY p.stok DESC";
@@ -138,17 +134,14 @@ $result = mysqli_query($koneksi, $query);
 </head>
 <body>
 
-<!-- Header -->
 <div class="header">
     <a href="index.php">
         <img src="../user/img/back-icon.png" alt="Kembali">
     </a>
 </div>
 
-<!-- Judul -->
 <h2>Laporan Produk dan Transaksi</h2>
 
-<!-- Pencarian -->
 <div class="search-box">
     <form method="GET" action="">
         <input type="text" name="cari" placeholder="Cari nama produk..." value="<?= htmlspecialchars($cari) ?>">
@@ -156,7 +149,6 @@ $result = mysqli_query($koneksi, $query);
     </form>
 </div>
 
-<!-- Tombol Filter (berdasarkan role) -->
 <div class="btn-container">
     <?php if ($role == 'admin') { ?>
         <a href="?filter=stok_terbanyak" class="btn-custom">📦 Stok Terbanyak</a>

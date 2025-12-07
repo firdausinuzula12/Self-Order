@@ -2,9 +2,8 @@
 session_start(); 
 include 'koneksi.php'; 
 
-// Query untuk menghitung total data yang sudah ada di tabel tb_users
 $sql_count = "SELECT COUNT(*) AS total FROM tb_users";
-$result = $koneksi->query($sql_count); // Menjalankan query
+$result = $koneksi->query($sql_count); 
 $row = $result->fetch_assoc(); 
 $no_antrian = $row['total'] + 1; 
 
@@ -17,10 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             VALUES ('$id_pesanan', '$nama', $no_antrian)";
     
     if ($koneksi->query($sql) === TRUE) {   
-       $_SESSION['no_antrian'] = $no_antrian;    
+        $_SESSION['no_antrian'] = $no_antrian;    
         $_SESSION['id_pesanan'] = $id_pesanan; 
         $_SESSION['nama_pelanggan'] = $nama;   
-
 
         header('Location: home.php');
         exit(); 
@@ -41,7 +39,7 @@ $koneksi->close();
     <title>The Cakery</title>
     <style>
         body {
-            font-family: 'Verdana', sans-serif; /* Mengatur jenis font */
+            font-family: 'Inter', sans-serif; /* Mengatur jenis font */
             background-image: url('img/Untitled design.png'); /* Gambar latar belakang */
             background-size: cover;  /* Gambar menyesuaikan ukuran layar */
             background-position: center;  /* Posisi gambar di tengah */
@@ -54,40 +52,42 @@ $koneksi->close();
         img {
             width: 180px;  /* Lebar gambar logo */
             margin-bottom: 20px;  /* Jarak bawah dari logo */
-            margin-top: 94px;   /* Jarak atas dari logo */
+            margin-top: 40px;   /* Jarak atas dari logo */
         }
        
         input[type="text"] {
-            width: 225px;   /* Lebar kotak input */
-            padding: 8px;  /* Ruang dalam kotak input */
+            width: 200px;   /* Lebar kotak input */
+            padding: 10px;  /* Ruang dalam kotak input */
             margin: 10px;  /* Jarak luar kotak input */
-            margin-top: 1px;  /* Jarak atas khusus */
-            border: 3px solid #AC1754; /* Garis tepi kotak input */
-            border-radius: 5px; /* Sudut melengkung */
+            margin-top: 40px;  /* Jarak atas khusus */
+            border: 2px solid #AC1754; /* Garis tepi kotak input */
+            border-radius: 2px; /* Sudut melengkung */
             font-size: 14px; /* Ukuran teks dalam input */
         }
         
         .antrian {
+            width: 40px;  
             display: inline-block;  /* Tampilan sebagai blok inline */
-            margin: 10px 0; /* Jarak atas-bawah */
+            margin: 10px; /* Jarak atas-bawah */
             font-size: 14px;  /* Ukuran teks */
             background: white;  /* Latar belakang putih */
-            padding: 8px; /* Ruang dalam label */
-            border: 3px solid #AC1754; /* Garis tepi label */
-            border-radius: 3px; /* Sudut melengkung */
+            padding: 7px; /* Ruang dalam label */
+            border: 2px solid #AC1754; /* Garis tepi label */
+            border-radius: 2px; /* Sudut melengkung */
             color: #880E4F;  /* Warna teks label */
-            margin-top: 2px; /* Jarak atas khusus */
+            margin-top: 5px; /* Jarak atas khusus */
         }
         
         button {
+            width: 140px;
             background-color: #AC1754; /* Warna latar tombol */
             color: white; /* Warna teks tombol */
             padding: 10px; /* Ruang dalam tombol */
             border: none; /* Menghilangkan garis tepi default */
-            border-radius: 4px; /* Sudut melengkung tombol */
+            border-radius: 2px; /* Sudut melengkung tombol */
             cursor: pointer; /* Kursor berubah saat hover */
             font-size: 15px; /* Ukuran teks tombol */
-            margin-top: 20px; /* Jarak atas tombol */
+            margin-top: 15px; /* Jarak atas tombol */
         }
         
         button:hover {
@@ -106,14 +106,13 @@ $koneksi->close();
         <br>
             <button type="submit">Selanjutnya</button>
     </form>
-
- <script>
-    /*
+<script>
+    
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
     const radius = 100; // radius dalam meter
-    const tokoLat = -6.200000; // latitude toko (-7,3401614)
-    const tokoLng = 106.816666; // longitude toko (109,8887773)
+    const tokoLat = -7,3401614; // latitude toko ()-6.200000 /////// s-7,3401614
+    const tokoLng = 109,8887773; // longitude toko ()106.816666 //////s109,8887773
 
     function hitungJarak(lat1, lon1, lat2, lon2) {
         const R = 6371e3; // radius bumi (meter)
@@ -150,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Browser Anda tidak mendukung GPS!');
         }                                                                                                                                                 
     });
-});**/
+});
 </script>
 </body>
 </html>

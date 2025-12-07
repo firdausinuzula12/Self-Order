@@ -50,29 +50,30 @@ if (isset($_GET['id'])) {
   <title>Bayar Pesanan</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family:'Inter', sans-serif;
       background: #f5f5f5;
       margin: 0;
       padding: 0;
     }
+
     header {
-    background-color: #AC1754;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-}
-header a img {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-}
+      background-color: #AC1754;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+    }
+    header a img {
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+    }
     .container {
       width: 400px;
-      margin: 80px auto;
+      margin: 25px auto;
       background: white;
       padding: 30px;
-      border-radius: 10px;
+      border-radius: 3px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     }
     h2 {
@@ -90,10 +91,10 @@ header a img {
     }
     input[type=number] {
       width: 100%;
-      padding: 10px;
+      padding: 9px;
       margin-top: 8px;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 3px;
       font-size: 15px;
     }
     .readonly {
@@ -108,7 +109,7 @@ header a img {
       background: #AC1754;
       color: white;
       font-weight: bold;
-      border-radius: 6px;
+      border-radius: 3px;
       cursor: pointer;
       transition: 0.3s;
     }
@@ -119,7 +120,7 @@ header a img {
       background: #ffe5e5;
       color: #d00;
       padding: 10px;
-      border-radius: 6px;
+      border-radius: 3px;
       margin-bottom: 15px;
     }
   </style>

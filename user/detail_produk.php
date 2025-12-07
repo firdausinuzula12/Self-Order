@@ -1,6 +1,6 @@
 <?php
 session_start();
-$koneksi = new mysqli("localhost", "root", "", "toko");
+include 'koneksi.php';
 
 $id = intval($_GET['id']);
 $query = $koneksi->query("SELECT * FROM tb_produk WHERE id = $id");
@@ -56,7 +56,7 @@ if (isset($_POST['tambah_keranjang']) || isset($_POST['beli_sekarang'])) {
 
 <style>
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #FFEDFA 0%, #F8E8FF 100%);
     margin: 0;
     color: #333;
@@ -66,13 +66,13 @@ body {
 .header {
     background: linear-gradient(135deg, #AC1754 0%, #D63384 100%);
     color: white;
-    padding: 8px 0;
+    padding: 28px 0;
     box-shadow: 0 4px 15px rgba(172, 23, 84, 0.3);
     text-align: center;
     position: relative;
 }
 .header h1 {
-    font-size: 22px;
+    font-size: 30px;
     margin: 0;
     font-weight: 600;
 }
@@ -83,33 +83,33 @@ body {
     transform: translateY(-50%);
 }
 .back-button img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     transition: transform 0.2s ease;
 }
 .back-button:hover img { transform: scale(1.1); }
 
 /* ==== DETAIL CONTAINER ==== */
 .detail-container {
-    max-width: 700px;
-    margin: 25px auto;
+    max-width: 800px;
+    margin: 15px auto;
     background: #fff;
-    border-radius: 15px;
+    border-radius: 8px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     overflow: hidden;
     animation: fadeIn 0.5s ease;
 }
 .product-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    padding: 20px;
+    grid-template-columns: 380px 1fr;
+    gap: 0px;
+    padding: 30px;
 }
 .detail-image img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 12px;
+    width: 250px;
+    height: 250px;
+    object-fit: right;
+    border-radius: 0px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     transition: transform 0.3s;
 }
@@ -129,7 +129,7 @@ body {
 .basic-meta {
     background: rgba(172,23,84,0.05);
     padding: 6px;
-    border-radius: 8px;
+    border-radius: 3px;
     font-size: 0.8rem;
 }
 .basic-meta span { font-weight: 600; color: #AC1754; }
@@ -139,7 +139,7 @@ body {
     background: #AC1754;
     color: white;
     padding: 8px;
-    border-radius: 8px;
+    border-radius: 3px;
     text-align: center;
     margin: 10px 0;
 }
@@ -149,7 +149,7 @@ body {
 /* ==== FORM JUMLAH ==== */
 .qty-section {
     border: 1px solid rgba(172,23,84,0.1);
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 10px;
     text-align: center;
 }
@@ -163,7 +163,7 @@ body {
 .qty-btn {
     width: 28px;
     height: 28px;
-    border-radius: 50%;
+    border-radius: 3;
     border: 2px solid #AC1754;
     background: white;
     color: #AC1754;
@@ -178,7 +178,7 @@ body {
     text-align: center;
     font-weight: 600;
     border: 2px solid #ddd;
-    border-radius: 6px;
+    border-radius: 3px;
 }
 .total-display {
     font-weight: 600;
@@ -196,7 +196,7 @@ body {
 .btn {
     padding: 8px 0;
     border: none;
-    border-radius: 15px;
+    border-radius: 3px;
     color: white;
     background: linear-gradient(135deg, #AC1754 0%, #D63384 100%);
     font-size: 0.9rem;

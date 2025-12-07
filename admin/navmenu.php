@@ -13,12 +13,12 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Verdana', sans-serif;
+      font-family: 'Poppins Semibold';
     }
 
     body {
       background-color: #ffedfa;
-      padding-top: 90px;
+      padding-top: 75px;
     }
 
     /* --- HEADER --- */
@@ -26,7 +26,7 @@
       background-color: #AC1754;
       display: flex;
       align-items: center;
-      padding: 8px 0;
+      padding: 1px 0;
       position: fixed;
       top: 0;
       left: 0;
@@ -56,8 +56,8 @@
     }
 
     .logo span {
-      font-family: 'Verdana', sans-serif;
-      font-size: 28px;
+      font-family: 'Poppins Semibold';
+      font-size: 33px;
       font-weight: bold;
       color: white;
     }
@@ -66,14 +66,14 @@
     .menu-kanan {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 35px;
     }
 
     .menu-kanan .nav-link {
       color: white;
       font-weight: 600;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 18px;
       transition: 0.3s;
       display: flex;
       align-items: center;

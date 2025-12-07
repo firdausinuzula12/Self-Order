@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #FFEDFA;
             padding: 40px 15px;
         }
@@ -68,9 +68,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             max-width: 550px;
             background: #fff;
             margin: auto;
-            margin-top: 80px;
+            margin-top: 10px;
             padding: 35px;
-            border-radius: 12px;
+            border-radius: 3px;
             box-shadow: 0 6px 16px rgba(0,0,0,0.1);
         }
 
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         input[type="text"], input[type="number"], select, textarea {
             width: 100%;
             padding: 10px 12px;
-            border-radius: 8px;
+            border-radius: 3px;
             border: 1px solid #ccc;
             font-size: 14px;
             background: #f8f8f8;
@@ -121,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border: none;
             padding: 12px;
             font-size: 15px;
-            border-radius: 8px;
+            border-radius: 3px;
             cursor: pointer;
             width: 100%;
             font-weight: 600;

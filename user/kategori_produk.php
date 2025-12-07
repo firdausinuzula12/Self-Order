@@ -1,9 +1,7 @@
 <?php
-$koneksi = mysqli_connect("localhost", "root", "", "toko");
+include 'koneksi.php';
 
-// Ambil kategori dari URL
 $kategori = isset($_GET['kategori']) ? $_GET['kategori'] : '';
-
 if ($kategori) {
     $query = "SELECT * FROM tb_produk WHERE kategori = '$kategori'";
     $result = mysqli_query($koneksi, $query);
@@ -11,7 +9,6 @@ if ($kategori) {
     $result = false;
 }
 
-// Ambil rata-rata rating dan jumlah review per produk
 $rating_data = [];
 $rating_query = mysqli_query($koneksi, "
     SELECT id, ROUND(AVG(rating), 1) AS avg_rating, COUNT(*) AS total_review
@@ -32,128 +29,136 @@ while ($r = mysqli_fetch_assoc($rating_query)) {
 <title>Kategori: <?= $kategori ? ucfirst($kategori) : 'Tidak Diketahui' ?></title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #FFEDFA 0%, #F8E8FF 100%);
-    margin: 0;
-}
-header {
-    background: linear-gradient(135deg, #AC1754 0%, #D63384 100%);
-    color: white;
-    padding: 8px 0;
-    text-align: center;
-    position: fixed;           /* 🧷 Bikin header tetap di atas */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;             /* biar gak ketimpa konten lain */
-    box-shadow: 0 4px 15px rgba(172, 23, 84, 0.2);
-}
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #FFEDFA 0%, #F8E8FF 100%);
+        margin: 0;
+    }
+    header {
+        background: linear-gradient(135deg, #AC1754 0%, #D63384 100%);
+        color: white;
+        padding: 28px 0;
+        text-align: center;
+        position: fixed;          
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;         
+        box-shadow: 0 4px 15px rgba(172, 23, 84, 0.2);
+    }
 
-header h1 {
-    margin: 0;
-    font-size: 1.3rem;
-}
+    header h1 {
+        margin: 0;
+        font-size: 30px;
+    }
 
-.back-button {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-}
+    .back-button {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
-.back-button img {
-    width: 24px;
-    height: 24px;
-}
+    .back-button img {
+        width: 30px;
+        height: 30px;
+    }
 
-/* tambahkan jarak di bawah header supaya konten gak ketimpa */
-.container {
-    max-width: 1150px;
-    margin: 100px auto 40px;   /* 🔧 tambah margin-top 100px */
-    padding: 10px 20px;
-}
+    .container {
+        max-width: 1150px;
+        margin: 100px auto 40px;   /* 🔧 tambah margin-top 100px */
+        padding: 10px 20px;
+    }
 
-.produk-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
-}
-.produk-item {
-    position: relative;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    text-align: center;
-}
-.produk-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(172, 23, 84, 0.2);
-}
-.produk-item img {
-    width: 100%;
-    height: 130px;
-    object-fit: cover;
-    transition: 0.3s ease;
-}
-.produk-info {
-    padding: 10px 8px 15px;
-}
-.produk-info h3 {
-    margin: 5px 0;
-    font-size: 0.9rem;
-    color: #333;
-    font-weight: 600;
-}
-.produk-info p {
-    color: #AC1754;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin: 0;
-}
-.rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 4px;
-    gap: 2px;
-}
-.star {
-    width: 15px;
-    height: 15px;
-    background-color: #ddd;
-    clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 70% 59%, 82% 100%, 50% 75%, 18% 100%, 30% 59%, 0% 38%, 37% 38%);
-}
-.star.filled {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-}
-.rating-text {
-    font-size: 0.8rem;
-    color: #555;
-    margin-top: 2px;
-}
+    .produk-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+    }
 
-/* === STOK HABIS === */
-.out-of-stock {
-    opacity: 0.5;
-    pointer-events: none;
-    position: relative;
-}
-.out-of-stock::after {
-    content: "Produk Habis";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(172, 23, 84, 0.9);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
+    .produk-item {
+        position: relative;
+        background: #fff;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .produk-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 18px rgba(172, 23, 84, 0.2);
+    }
+
+    .produk-item img {
+        width: 100%;
+        height: 130px;
+        object-fit: cover;
+        transition: 0.3s ease;
+    }
+
+    .produk-info {
+        padding: 10px 8px 15px;
+    }
+
+    .produk-info h3 {
+        margin: 5px 0;
+        font-size: 0.9rem;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .produk-info p {
+        color: #AC1754;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin: 0;
+    }   
+
+    .rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 4px;
+        gap: 2px;
+    }
+
+    .star {
+        width: 15px;
+        height: 15px;
+        background-color: #ddd;
+        clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 70% 59%, 82% 100%, 50% 75%, 18% 100%, 30% 59%, 0% 38%, 37% 38%);
+    }
+
+    .star.filled {
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    }
+
+    .rating-text {
+        font-size: 0.8rem;
+        color: #555;
+        margin-top: 2px;
+    }
+
+    .out-of-stock {
+        opacity: 0.5;
+        pointer-events: none;
+        position: relative;
+    }
+    .out-of-stock::after {
+        content: "Produk Habis";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(172, 23, 84, 0.9);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
 </style>
 </head>
 <body>

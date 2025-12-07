@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('koneksi.php');
+include 'koneksi.php';
 include 'navbar.php';
 
 // Ambil semua pesanan
@@ -62,7 +62,7 @@ $pesanan = $koneksi->query("
 
     .card {
         background: #fff;
-        border-radius: 12px;
+        border-radius: 3px;
         box-shadow: 0 2px 10px rgba(172, 23, 84, 0.1);
         overflow: hidden;
         transition: 0.3s;
@@ -81,7 +81,7 @@ $pesanan = $koneksi->query("
 
     .status {
         padding: 5px 12px;
-        border-radius: 12px;
+        border-radius: 3px;
         font-size: 0.8rem;
         font-weight: 600;
         color: #fff;
@@ -91,9 +91,15 @@ $pesanan = $koneksi->query("
         gap: 8px;
     }
 
-    .status.Pending { background: #fbbf24; }
-    .status.Lunas { background: #16a34a; }
-    .status.Dibatalkan { background: #9ca3af; }
+    .status.Pending { 
+        background: #fbbf24; 
+    }
+    .status.Lunas { 
+        background: #16a34a; 
+    }
+    .status.Dibatalkan { 
+        background: #9ca3af; 
+    }
 
     .status a {
         color: white;
@@ -154,7 +160,7 @@ $pesanan = $koneksi->query("
         display: inline-block;
         background: #AC1754;
         color: white;
-        border-radius: 6px;
+        border-radius: 3px;
         padding: 8px 14px;
         font-size: 0.9rem;
         font-weight: 600;
@@ -168,8 +174,7 @@ $pesanan = $koneksi->query("
 
 <div class="container">
     <div class="header">
-        <i class="fas fa-cash-register"></i>
-        Riwayat Transaksi Kasir
+        
     </div>
 
     <?php if ($pesanan->num_rows > 0): ?>

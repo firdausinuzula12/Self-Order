@@ -87,22 +87,18 @@ while ($row = mysqli_fetch_assoc($result)) {
         }
     </style>
 </head>
-
 <body>
-
     <!-- HEADER -->
     <header class="page-header">
         <a href="dashboard_admin.php" class="back-btn">
             <img src="../user/img/back-icon.png" alt="Kembali">
         </a>
     </header>
-
     <!-- KONTEN GRAFIK -->
     <div class="chart-container">
         <h2>Analisis Waktu Transaksi Tersibuk</h2>
         <canvas id="jamSibukChart"></canvas>
     </div>
-
     <!-- SCRIPT GRAFIK -->
     <script>
         const ctx = document.getElementById('jamSibukChart').getContext('2d');
@@ -152,6 +148,5 @@ while ($row = mysqli_fetch_assoc($result)) {
             }
         });
     </script>
-
 </body>
 </html>

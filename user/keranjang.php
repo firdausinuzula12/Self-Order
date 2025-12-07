@@ -1,12 +1,11 @@
 <?php
 session_start();
+include 'navbar.php';
 
-// Inisialisasi keranjang jika belum ada
 if (!isset($_SESSION['keranjang']) || !is_array($_SESSION['keranjang'])) {
     $_SESSION['keranjang'] = [];
 }
 
-// Proses tambah produk ke keranjang
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['nama'], $_POST['harga'], $_POST['jumlah'], $_POST['gambar'])) {
     $id = $_POST['id'];
     $nama = $_POST['nama'];
@@ -14,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['nama'],
     $jumlah = (int)$_POST['jumlah'];
     $gambar = $_POST['gambar'];
 
-    // Cari apakah produk sudah ada di keranjang
+ 
     $produkSudahAda = false;
     foreach ($_SESSION['keranjang'] as &$item) {
         if ($item['id'] == $id) {
@@ -23,9 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['nama'],
             break;
         }
     }
-    unset($item); // Lepaskan referensi
+    unset($item);
 
-    // Kalau belum ada, tambahkan produk baru
     if (!$produkSudahAda) {
         $_SESSION['keranjang'][] = [
             'id' => $id,
@@ -37,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['nama'],
     }
 }
 
-// Hitung total item untuk badge keranjang
 $totalItem = 0;
 foreach ($_SESSION['keranjang'] as $item) {
     $totalItem += isset($item['jumlah']) ? (int)$item['jumlah'] : 0;
@@ -59,33 +56,33 @@ foreach ($_SESSION['keranjang'] as $item) {
         }
 
         body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Biar center secara vertikal */
-}
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Biar center secara vertikal */
+        }
 
-.main-wrapper {
-    width: 100%;
-    max-width: 850px;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .main-wrapper {
+            width: 100%;
+            max-width: 850px;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.container {
-    width: 100%;
-    max-width: 750px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(172, 23, 84, 0.15);
-    overflow: hidden;
-    transform: translateY(20px); /* agar agak turun dari tengah */
-}
+        .container {
+            width: 100%;
+            max-width: 750px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(172, 23, 84, 0.15);
+            overflow: hidden;
+            transform: translateY(20px); /* agar agak turun dari tengah */
+        }
 
 
         .header::before {
@@ -115,7 +112,7 @@ foreach ($_SESSION['keranjang'] as $item) {
             right: -10px;
             background: linear-gradient(45deg, #ff6b6b, #ee5a52);
             color: #fff;
-            border-radius: 50%;
+            border-radius: 3;
             padding: 4px 8px;
             font-size: 12px;
             font-weight: bold;
@@ -150,7 +147,7 @@ foreach ($_SESSION['keranjang'] as $item) {
             padding: 15px;
             margin-bottom: 12px;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 3px;
             box-shadow: 0 2px 8px rgba(172, 23, 84, 0.08);
             transition: all 0.3s ease;
             border: 1px solid rgba(172, 23, 84, 0.1);
@@ -182,7 +179,7 @@ foreach ($_SESSION['keranjang'] as $item) {
             width: 60px;
             height: 60px;
             object-fit: cover;
-            border-radius: 6px;
+            border-radius: 3px;
             box-shadow: 0 2px 4px rgba(172, 23, 84, 0.1);
             transition: transform 0.3s ease;
         }
@@ -231,7 +228,7 @@ foreach ($_SESSION['keranjang'] as $item) {
             background: #AC1754;
             color: white;
             padding: 3px 8px;
-            border-radius: 12px;
+            border-radius: 3px;
             font-size: 0.8rem;
             font-weight: 600;
         }
@@ -247,7 +244,7 @@ foreach ($_SESSION['keranjang'] as $item) {
             background: #AC1754;
             color: #fff;
             border: none;
-            border-radius: 6px;
+            border-radius: 3px;
             font-size: 12px;
             font-weight: 600;
             cursor: pointer;
@@ -267,7 +264,7 @@ foreach ($_SESSION['keranjang'] as $item) {
         .total-section {
             background: #f8f8f8;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 3px;
             margin-top: 15px;
             border: 1px solid rgba(172, 23, 84, 0.1);
         }
@@ -291,7 +288,7 @@ foreach ($_SESSION['keranjang'] as $item) {
             padding: 10px 20px;
             color: #fff;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 3px;
             font-size: 14px;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -374,7 +371,7 @@ foreach ($_SESSION['keranjang'] as $item) {
             width: 20px;
             height: 20px;
             border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
+            border-radius: 3;
             border-top-color: #fff;
             animation: spin 1s ease-in-out infinite;
         }
@@ -385,15 +382,10 @@ foreach ($_SESSION['keranjang'] as $item) {
     </style>
 </head>
 <body>
-
-<?php include 'navbar.php'; ?>
-
 <div class="main-wrapper">
     <div class="container">
         <div class="header">
-            
         </div>
-
         <div class="cart-content">
             <?php if (empty($_SESSION['keranjang'])): ?>
                 <div class="empty-cart">
@@ -451,7 +443,6 @@ foreach ($_SESSION['keranjang'] as $item) {
                     <div class="total-row">
                         Total: Rp<?php echo number_format($totalHarga, 0, ',', '.'); ?>
                     </div>
-
                     <div class="action-buttons">
                         <a href="jenis_produk.php" class="btn-action btn-tambah">
                            Tambah Produk
@@ -465,6 +456,5 @@ foreach ($_SESSION['keranjang'] as $item) {
         </div>
     </div>
 </div>
-
 </body>
 </html>

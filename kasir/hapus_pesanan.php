@@ -4,7 +4,6 @@ include 'koneksi.php';
 if (isset($_GET['id'])) {
     $id_pesanan = $_GET['id'];
 
-    // Mulai transaksi
     $koneksi->begin_transaction();
 
     try {
