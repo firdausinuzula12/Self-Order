@@ -33,6 +33,7 @@ Web self-order The Cakery merupakan web pemesanan mandiri, yang dimana pelanggan
   <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/67cd1c5c-9f5e-4bd9-b714-2ff2adde7105" />
 
 * Admin
+  
   <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/64716980-dea5-4682-be53-04cdaf3c48bd" />
   <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/b2f437a5-144d-480a-84a2-edc33c54d743" />
   <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/c1406c84-3385-4d2f-9bdb-7e23076d170a" />
