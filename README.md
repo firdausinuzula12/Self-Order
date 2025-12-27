@@ -45,7 +45,7 @@ Web self-order The Cakery merupakan web pemesanan mandiri, yang dimana pelanggan
 - Keperluan portofolio
 
 ### 📌 Status 
-Project: Sedang dikembangkan.
+Project: Selesai.
 
 ### 👩🏻 Author
 Firdausi Nuzula
